@@ -7,7 +7,7 @@
 
 #endregion
 
-namespace Symu.Common.Interfaces
+namespace Symu.Common.Interfaces.Agent
 {
     /// <summary>
     /// IClassKey is the interface for the unique identifier of the class of the agent
