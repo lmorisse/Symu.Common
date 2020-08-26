@@ -23,7 +23,7 @@ namespace Symu.Common.Interfaces.Entity
         ///     each bit represent a single atomic fact
         ///     size range [0; 10]
         /// </summary>
-        byte Length { get; }
+        //byte Length { get; }
 
         bool Equals(IKnowledge knowledge);
     }
