@@ -18,6 +18,8 @@ namespace Symu.Common.Interfaces.Agent
     {
         IId Id { get; }
         IClassId ClassId { get; }
+        bool IsNull { get; }
+        bool IsNotNull { get; }
         bool Equals(IAgentId agentId);
         bool Equals(IClassId classId);
         /// <summary>
@@ -26,5 +28,6 @@ namespace Symu.Common.Interfaces.Agent
         /// <param name="agentId"></param>
         /// <returns>true if this is inferior to agentId </returns>
         bool CompareTo(IAgentId agentId);
+
     }
 }

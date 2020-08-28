@@ -52,6 +52,26 @@ namespace Symu.Common.Interfaces.Agent
             Id = id;
             ClassId = new ClassId(classId);
         }
+        public AgentId(IId id, byte classId)
+        {
+            Id = (UId)id;
+            ClassId = new ClassId(classId);
+        }
+        public AgentId(UId id, IClassId classId)
+        {
+            Id = id;
+            ClassId = (ClassId)classId;
+        }
+        public AgentId(IId id, IClassId classId)
+        {
+            Id = (UId)id;
+            ClassId = (ClassId)classId;
+        }
+        public AgentId(IAgentId agentId)
+        {
+            Id = (UId)agentId.Id;
+            ClassId = (ClassId)agentId.ClassId;
+        }
 
         /// <summary>
         ///     Don't remove this substitution

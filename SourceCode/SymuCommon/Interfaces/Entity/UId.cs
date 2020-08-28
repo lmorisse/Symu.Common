@@ -27,5 +27,14 @@ namespace Symu.Common.Interfaces.Entity
         {
             return id is UId iid && Id == iid.Id;
         }
+
+        public static ushort Cast(IId id)
+        {
+            if (id is UId uid)
+            {
+                return uid.Id;
+            }
+            return 0;
+        }
     }
 }

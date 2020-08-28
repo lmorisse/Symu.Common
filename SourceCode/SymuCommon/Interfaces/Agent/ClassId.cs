@@ -7,6 +7,8 @@
 
 #endregion
 
+using System;
+
 namespace Symu.Common.Interfaces.Agent
 {
     /// <summary>
@@ -26,7 +28,27 @@ namespace Symu.Common.Interfaces.Agent
 
         public bool Equals(IClassId classId)
         {
-            return Id == ((ClassId)classId).Id;
+            return Id == Cast(classId);
+        }
+
+        public bool Equals(byte classId)
+        {
+            return Id == classId;
+        }
+
+        public static byte Cast(IClassId classId)
+        {
+            return ((ClassId) classId).Id;
+        }
+
+        public static byte Cast(IAgentId agentId)
+        {
+            if (agentId == null)
+            {
+                throw new ArgumentNullException(nameof(agentId));
+            }
+
+            return ((ClassId)agentId.ClassId).Id;
         }
     }
 }
