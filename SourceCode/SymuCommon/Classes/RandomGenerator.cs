@@ -7,7 +7,7 @@
 
 #endregion
 
-namespace Symu.Common
+namespace Symu.Common.Classes
 {
     /// <summary>
     ///     Random generators in order to create random network

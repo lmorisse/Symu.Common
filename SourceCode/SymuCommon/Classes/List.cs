@@ -16,7 +16,7 @@ using Symu.Common.Math.ProbabilityDistributions;
 
 #endregion
 
-namespace Symu.Common
+namespace Symu.Common.Classes
 {
     public static class List
     {
