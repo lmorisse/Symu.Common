@@ -8,16 +8,15 @@
 #endregion
 
 using System;
+using System.Data.SqlTypes;
 
 namespace Symu.Common.Interfaces.Entity
 {
     /// <summary>
     /// Interface for the unique identifier of an entity
     /// </summary>
-    public interface IId : IComparable
+    public interface IId : IComparable, INullable
     {
-        bool IsNull { get; }
-        bool IsNotNull { get; }
         bool Equals(IId id);
     }
 }

@@ -21,7 +21,6 @@ namespace Symu.Common.Interfaces.Entity
         }
         public ushort Id { get; }
         public bool IsNull => Id == 0;
-        public bool IsNotNull => Id != 0;
 
         public bool Equals(IId id)
         {

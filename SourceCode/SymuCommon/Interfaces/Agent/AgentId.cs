@@ -34,7 +34,6 @@ namespace Symu.Common.Interfaces.Agent
         public byte Class => ((ClassId?) ClassId)?.Id ?? 0;
 
         public bool IsNull => Id == null || Id.IsNull;
-        public bool IsNotNull => Id != null && Id.IsNotNull;
 
         IId IAgentId.Id => Id;
 
