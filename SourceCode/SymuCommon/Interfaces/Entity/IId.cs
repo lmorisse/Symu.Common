@@ -7,12 +7,14 @@
 
 #endregion
 
+using System;
+
 namespace Symu.Common.Interfaces.Entity
 {
     /// <summary>
     /// Interface for the unique identifier of an entity
     /// </summary>
-    public interface IId
+    public interface IId : IComparable
     {
         bool IsNull { get; }
         bool IsNotNull { get; }

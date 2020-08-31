@@ -36,5 +36,15 @@ namespace Symu.Common.Interfaces.Entity
             }
             return 0;
         }
+
+        public int CompareTo(object obj)
+        {
+            if (obj is UId id)
+            {
+                return Id - id.Id;
+            }
+
+            return 0;
+        }
     }
 }

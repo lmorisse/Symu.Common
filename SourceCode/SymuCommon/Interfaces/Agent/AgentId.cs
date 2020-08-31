@@ -9,6 +9,7 @@
 
 #region using directives
 
+using System;
 using Symu.Common.Interfaces.Entity;
 
 #endregion
@@ -69,6 +70,11 @@ namespace Symu.Common.Interfaces.Agent
         }
         public AgentId(IAgentId agentId)
         {
+            if (agentId == null)
+            {
+                throw new ArgumentNullException(nameof(agentId));
+            }
+
             Id = (UId)agentId.Id;
             ClassId = (ClassId)agentId.ClassId;
         }
