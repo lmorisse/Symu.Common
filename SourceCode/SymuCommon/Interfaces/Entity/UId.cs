@@ -7,6 +7,8 @@
 
 #endregion
 
+using System;
+
 namespace Symu.Common.Interfaces.Entity
 {
     /// <summary>
@@ -25,6 +27,20 @@ namespace Symu.Common.Interfaces.Entity
         public bool Equals(IId id)
         {
             return id is UId iid && Id == iid.Id;
+        }
+        public override bool Equals(object id)
+        {
+            return id is UId iid && Id == iid.Id;
+        }
+        /// <summary>
+        /// Don't remove
+        /// Constant because equals tests mutable member.
+        /// This will give poor hash performance, but will prevent ContainsKey bugs.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return 0;
         }
 
         public static ushort Cast(IId id)

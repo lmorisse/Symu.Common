@@ -30,10 +30,24 @@ namespace Symu.Common.Interfaces.Agent
         {
             return Id == Cast(classId);
         }
+        public override bool Equals(object id)
+        {
+            return id is ClassId iid && Id == iid.Id;
+        }
 
         public bool Equals(byte classId)
         {
             return Id == classId;
+        }
+        /// <summary>
+        /// Don't remove
+        /// Constant because equals tests mutable member.
+        /// This will give poor hash performance, but will prevent ContainsKey bugs.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return 0;
         }
 
         public static byte Cast(IClassId classId)
