@@ -61,5 +61,10 @@ namespace Symu.Common.Interfaces.Entity
 
             return 0;
         }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }
