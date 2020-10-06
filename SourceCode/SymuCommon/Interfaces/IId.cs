@@ -10,12 +10,12 @@
 using System;
 using System.Data.SqlTypes;
 
-namespace Symu.Common.Interfaces.Entity
+namespace Symu.Common.Interfaces
 {
     /// <summary>
     /// Interface for the unique identifier of an entity
     /// </summary>
-    public interface IId : IComparable, INullable
+    public interface IId : IComparable
     {
         bool Equals(IId id);
     }

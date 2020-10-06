@@ -32,20 +32,20 @@ namespace Symu.Common.Classes
         {
         }
 
-        public ModelEntity(ModelEntity entity)
-        {
-            if (entity is null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
-
-            entity.CopyTo(this);
-        }
-
+        private bool _on;
         /// <summary>
         ///     If (On) the model is active globally
         /// </summary>
-        public bool On { get; set; } = true;
+        public bool On
+        {
+            get => _on;
+            set => SetOn(value);
+        }
+
+        protected virtual void SetOn(bool value)
+        {
+            _on = value;
+        }
 
         /// <summary>
         ///     If model is On, individuals may use or not the model
@@ -69,7 +69,7 @@ namespace Symu.Common.Classes
             }
         }
 
-        public void CopyTo(ModelEntity entity)
+        public virtual void CopyTo(ModelEntity entity)
         {
             if (entity is null)
             {
@@ -78,6 +78,12 @@ namespace Symu.Common.Classes
 
             entity.On = On;
             entity.RateOfAgentsOn = RateOfAgentsOn;
+        }
+        public virtual ModelEntity Clone()
+        {
+            var clone = new ModelEntity();
+            CopyTo(clone);
+            return clone;
         }
 
         /// <summary>
@@ -89,5 +95,6 @@ namespace Symu.Common.Classes
         {
             return On && Bernoulli.Sample(RateOfAgentsOn);
         }
+
     }
 }

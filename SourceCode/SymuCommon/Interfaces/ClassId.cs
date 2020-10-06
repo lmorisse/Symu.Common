@@ -9,7 +9,7 @@
 
 using System;
 
-namespace Symu.Common.Interfaces.Agent
+namespace Symu.Common.Interfaces
 {
     /// <summary>
     /// ClassId is the default implementation of IClassId, the interface for the unique identifier of the class of the agent
