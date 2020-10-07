@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - SymuToolsTests
+// Description: SymuBiz - SymuCommonTests
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -12,12 +12,11 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Symu.Common;
 using Symu.Common.Classes;
 
 #endregion
 
-namespace SymuToolsTests
+namespace SymuCommonTests
 {
     [TestClass]
     public class ListTests

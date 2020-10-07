@@ -1,18 +1,23 @@
 ﻿#region Licence
 
-// Description: SymuBiz - Symu
+// Description: SymuBiz - SymuCommon
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
 
 #endregion
 
+#region using directives
+
 using System;
+
+#endregion
 
 namespace Symu.Common.Interfaces
 {
     /// <summary>
-    /// ClassId is the default implementation of IClassId, the interface for the unique identifier of the class of the agent
+    ///     ClassId is the default implementation of IClassId, the interface for the unique identifier of the class of the
+    ///     agent
     /// </summary>
     public struct ClassId : IClassId
     {
@@ -30,6 +35,7 @@ namespace Symu.Common.Interfaces
         {
             return Id == Cast(classId);
         }
+
         public override bool Equals(object id)
         {
             return id is ClassId iid && Id == iid.Id;
@@ -39,10 +45,11 @@ namespace Symu.Common.Interfaces
         {
             return Id == classId;
         }
+
         /// <summary>
-        /// Don't remove
-        /// Constant because equals tests mutable member.
-        /// This will give poor hash performance, but will prevent ContainsKey bugs.
+        ///     Don't remove
+        ///     Constant because equals tests mutable member.
+        ///     This will give poor hash performance, but will prevent ContainsKey bugs.
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
@@ -62,7 +69,7 @@ namespace Symu.Common.Interfaces
                 throw new ArgumentNullException(nameof(agentId));
             }
 
-            return ((ClassId)agentId.ClassId).Id;
+            return ((ClassId) agentId.ClassId).Id;
         }
     }
 }

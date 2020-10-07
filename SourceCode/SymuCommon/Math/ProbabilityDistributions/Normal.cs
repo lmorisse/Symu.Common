@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - SymuTools
+// Description: SymuBiz - SymuCommon
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -49,16 +49,6 @@ namespace Symu.Common.Math.ProbabilityDistributions
         public static float SampleWithLowerBound(float mean, float stdDev, float lowerBound)
         {
             return System.Math.Max(lowerBound, Sample(mean, stdDev));
-        }
-
-        /// <summary>
-        ///     Computes the cumulative distribution (CDF) of the distribution at x, i.e. P(X ≤ x).
-        /// </summary>
-        /// <param name="x">The location at which to compute the cumulative distribution function</param>
-        /// <returns>the cumulative distribution at location x</returns>
-        public static float CumulativeDistribution(float x)
-        {
-            return Convert.ToSingle(MathNet.Numerics.Distributions.Normal.CDF(0, 1, x));
         }
     }
 }

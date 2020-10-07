@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - SymuToolsTests
+// Description: SymuBiz - SymuCommonTests
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -11,13 +11,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Xml.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endregion
 
-namespace SymuToolsTests.Serialization
+namespace SymuCommonTests.Serialization
 {
     public class SerializationTest
     {
@@ -41,31 +40,31 @@ namespace SymuToolsTests.Serialization
         [TestMethod]
         public void ReadAndWriteTest()
         {
-      //      var serializer = new XmlSerializer(typeof(SerializationTest));
-      //      //WRITE
-      //      TextWriter writer = new StreamWriter(filename);
-      //      var teamWrite = new SerializationTest();
-      //      teamWrite.Add(1);
-      //      serializer.Serialize(writer, teamWrite);
-      //      writer.Close();
-      //      writer.Dispose();
-      //      //READ
-      //      /* If the XML document has been altered with unknown 
-      //nodes or attributes, handle them with the 
-      //UnknownNode and UnknownAttribute events.*/
-      //      serializer.UnknownNode += Serializer_UnknownNode;
-      //      serializer.UnknownAttribute += Serializer_UnknownAttribute;
-      //      // A FileStream is needed to read the XML document.
-      //      var fs = new FileStream(filename, FileMode.Open);
-      //      // Declare an object variable of the type to be deserialized.
-      //      SerializationTest teamRead;
-      //      /* Use the Deserialize method to restore the object's state with
-      //      data from the XML document. */
-      //      teamRead = (SerializationTest) serializer.Deserialize(fs);
-      //      fs.Dispose();
+            //      var serializer = new XmlSerializer(typeof(SerializationTest));
+            //      //WRITE
+            //      TextWriter writer = new StreamWriter(filename);
+            //      var teamWrite = new SerializationTest();
+            //      teamWrite.Add(1);
+            //      serializer.Serialize(writer, teamWrite);
+            //      writer.Close();
+            //      writer.Dispose();
+            //      //READ
+            //      /* If the XML document has been altered with unknown 
+            //nodes or attributes, handle them with the 
+            //UnknownNode and UnknownAttribute events.*/
+            //      serializer.UnknownNode += Serializer_UnknownNode;
+            //      serializer.UnknownAttribute += Serializer_UnknownAttribute;
+            //      // A FileStream is needed to read the XML document.
+            //      var fs = new FileStream(filename, FileMode.Open);
+            //      // Declare an object variable of the type to be deserialized.
+            //      SerializationTest teamRead;
+            //      /* Use the Deserialize method to restore the object's state with
+            //      data from the XML document. */
+            //      teamRead = (SerializationTest) serializer.Deserialize(fs);
+            //      fs.Dispose();
 
-      //      Assert.AreEqual(1, teamRead.Index);
-      //      Assert.AreEqual(1, teamRead.List.Count);
+            //      Assert.AreEqual(1, teamRead.Index);
+            //      Assert.AreEqual(1, teamRead.List.Count);
         }
 
         private void Serializer_UnknownNode(object sender, XmlNodeEventArgs e)

@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - SymuTools
+// Description: SymuBiz - SymuCommon
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -10,6 +10,7 @@
 #region using directives
 
 using System;
+using System.Collections.Generic;
 
 #endregion
 
@@ -30,10 +31,10 @@ namespace Symu.Common.Math.MachineLearning
             return Solve(Design(data));
         }
 
-        private static double[][] Design(double[][] data)
+        private static double[][] Design(IReadOnlyList<double[]> data)
         {
             // add a leading col of 1.0 values
-            var rows = data.Length;
+            var rows = data.Count;
             var cols = data[0].Length;
             var result = MatrixCreate(rows, cols + 1);
             for (var i = 0; i < rows; ++i)
@@ -52,11 +53,11 @@ namespace Symu.Common.Math.MachineLearning
             return result;
         }
 
-        private static double[] Solve(double[][] design)
+        private static double[] Solve(IReadOnlyList<double[]> design)
         {
             // find linear regression coefficients
             // 1. peel off X matrix and Y vector
-            var rows = design.Length;
+            var rows = design.Count;
             var cols = design[0].Length;
             var X = MatrixCreate(rows, cols - 1);
             var Y = MatrixCreate(rows, 1); // a column vector
@@ -98,10 +99,10 @@ namespace Symu.Common.Math.MachineLearning
             return result;
         }
 
-        private static double[] MatrixToVector(double[][] matrix)
+        private static double[] MatrixToVector(IReadOnlyList<double[]> matrix)
         {
             // single column matrix to vector
-            var rows = matrix.Length;
+            var rows = matrix.Count;
             var cols = matrix[0].Length;
             if (cols != 1)
             {
@@ -117,11 +118,11 @@ namespace Symu.Common.Math.MachineLearning
             return result;
         }
 
-        private static double[][] MatrixProduct(double[][] matrixA, double[][] matrixB)
+        private static double[][] MatrixProduct(IReadOnlyList<double[]> matrixA, IReadOnlyList<double[]> matrixB)
         {
-            var aRows = matrixA.Length;
+            var aRows = matrixA.Count;
             var aCols = matrixA[0].Length;
-            var bRows = matrixB.Length;
+            var bRows = matrixB.Count;
             var bCols = matrixB[0].Length;
             if (aCols != bRows)
             {
@@ -144,13 +145,13 @@ namespace Symu.Common.Math.MachineLearning
             return result;
         }
 
-        private static double[][] MatrixDecompose(double[][] matrix, out int[] perm,
+        private static double[][] MatrixDecompose(IReadOnlyList<double[]> matrix, out int[] perm,
             out int toggle)
         {
             // Doolittle LUP decomposition with partial pivoting.
             // returns: result is L (with 1s on diagonal) and U;
             // perm holds row permutations; toggle is +1 or -1 (even or odd)
-            var rows = matrix.Length;
+            var rows = matrix.Count;
             var cols = matrix[0].Length;
             if (rows != cols)
             {
@@ -288,9 +289,9 @@ namespace Symu.Common.Math.MachineLearning
             return result;
         }
 
-        private static double[][] MatrixTranspose(double[][] matrix)
+        private static double[][] MatrixTranspose(IReadOnlyList<double[]> matrix)
         {
-            var rows = matrix.Length;
+            var rows = matrix.Count;
             var cols = matrix[0].Length;
             var result = MatrixCreate(cols, rows); // note indexing
             for (var i = 0; i < rows; ++i)
@@ -304,11 +305,11 @@ namespace Symu.Common.Math.MachineLearning
             return result;
         } // TransposeMatrix
 
-        private static double[] HelperSolve(double[][] luMatrix, double[] b)
+        private static double[] HelperSolve(IReadOnlyList<double[]> luMatrix, double[] b)
         {
             // before calling this helper, permute b using the perm array
             // from MatrixDecompose that generated luMatrix
-            var n = luMatrix.Length;
+            var n = luMatrix.Count;
             var x = new double[n];
             b.CopyTo(x, 0);
 
@@ -338,11 +339,11 @@ namespace Symu.Common.Math.MachineLearning
             return x;
         }
 
-        private static double[][] MatrixDuplicate(double[][] matrix)
+        private static double[][] MatrixDuplicate(IReadOnlyList<double[]> matrix)
         {
             // allocates/creates a duplicate of a matrix
-            var result = MatrixCreate(matrix.Length, matrix[0].Length);
-            for (var i = 0; i < matrix.Length; ++i) // copy the values
+            var result = MatrixCreate(matrix.Count, matrix[0].Length);
+            for (var i = 0; i < matrix.Count; ++i) // copy the values
             {
                 for (var j = 0; j < matrix[i].Length; ++j)
                 {

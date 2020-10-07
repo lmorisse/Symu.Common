@@ -1,34 +1,52 @@
-﻿using MathNet.Numerics.LinearAlgebra;
+﻿#region Licence
+
+// Description: SymuBiz - SymuCommonTests
+// Website: https://symu.org
+// Copyright: (c) 2020 laurent morisseau
+// License : the program is distributed under the terms of the GNU General Public License
+
+#endregion
+
+#region using directives
+
+using MathNet.Numerics.LinearAlgebra;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Symu.Common.Math.LinearAlgebra;
 
+#endregion
+
 namespace SymuCommonTests.Math.LinearAlgebra
 {
-    [TestClass()]
+    [TestClass]
     public class MatrixExtensionTests
     {
         /// <summary>
-        /// 1 dim matrix filled with 0
+        ///     1 dim matrix filled with 0
         /// </summary>
         private readonly Matrix<float> _matrix10 = Matrix<float>.Build.Dense(1, 1);
+
         /// <summary>
-        /// 2 dim matrix filled with 0
-        /// </summary>
-        private readonly Matrix<float> _matrix20 = Matrix<float>.Build.Dense(2, 2);
-        /// <summary>
-        /// 1 dim matrix filled with 1
+        ///     1 dim matrix filled with 1
         /// </summary>
         private readonly Matrix<float> _matrix11 = Matrix<float>.Build.Dense(1, 1, 1F);
+
         /// <summary>
-        /// 2 dim matrix filled with 1
+        ///     2 dim matrix filled with 0
+        /// </summary>
+        private readonly Matrix<float> _matrix20 = Matrix<float>.Build.Dense(2, 2);
+
+        /// <summary>
+        ///     2 dim matrix filled with 1
         /// </summary>
         private readonly Matrix<float> _matrix21 = Matrix<float>.Build.Dense(2, 2, 1F);
+
         /// <summary>
-        /// 2 dim matrix identity
+        ///     2 dim matrix identity
         /// </summary>
         private readonly Matrix<float> _matrix2Identity = Matrix<float>.Build.DenseIdentity(2);
+
         /// <summary>
-        /// 2 dim matrix filled with 1
+        ///     2 dim matrix filled with 1
         /// </summary>
         private readonly Matrix<float> _matrix30 = Matrix<float>.Build.Dense(3, 3);
 
@@ -71,11 +89,10 @@ namespace SymuCommonTests.Math.LinearAlgebra
         }
 
 
-
         [TestMethod]
         public void MaximumTest()
         {
-            Assert.AreEqual(1,_matrix2Identity.Maximum());
+            Assert.AreEqual(1, _matrix2Identity.Maximum());
             _matrix2Identity[1, 1] = 2;
             Assert.AreEqual(2, _matrix2Identity.Maximum());
         }

@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - SymuToolsTests
+// Description: SymuBiz - SymuCommonTests
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -14,7 +14,7 @@ using Symu.Common.Math.ProbabilityDistributions;
 
 #endregion
 
-namespace SymuToolsTests.Math.ProbabilityDistributions
+namespace SymuCommonTests.Math.ProbabilityDistributions
 {
     [TestClass]
     public class LogNormalTests

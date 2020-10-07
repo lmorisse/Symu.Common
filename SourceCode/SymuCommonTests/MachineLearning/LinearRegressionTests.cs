@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - SymuToolsTests
+// Description: SymuBiz - SymuCommonTests
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -15,7 +15,7 @@ using Symu.Common.Math.MachineLearning;
 
 #endregion
 
-namespace SymuToolsTests.MachineLearning
+namespace SymuCommonTests.MachineLearning
 {
     [TestClass]
     public class LinearRegressionTest

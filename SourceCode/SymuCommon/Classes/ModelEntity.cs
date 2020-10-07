@@ -1,6 +1,6 @@
 ﻿#region Licence
 
-// Description: SymuBiz - Symu
+// Description: SymuBiz - SymuCommon
 // Website: https://symu.org
 // Copyright: (c) 2020 laurent morisseau
 // License : the program is distributed under the terms of the GNU General Public License
@@ -26,13 +26,9 @@ namespace Symu.Common.Classes
     /// </example>
     public class ModelEntity
     {
+        private bool _on;
         private float _rateOfAgentsOn = 1F;
 
-        public ModelEntity()
-        {
-        }
-
-        private bool _on;
         /// <summary>
         ///     If (On) the model is active globally
         /// </summary>
@@ -40,11 +36,6 @@ namespace Symu.Common.Classes
         {
             get => _on;
             set => SetOn(value);
-        }
-
-        protected virtual void SetOn(bool value)
-        {
-            _on = value;
         }
 
         /// <summary>
@@ -69,6 +60,11 @@ namespace Symu.Common.Classes
             }
         }
 
+        protected virtual void SetOn(bool value)
+        {
+            _on = value;
+        }
+
         public virtual void CopyTo(ModelEntity entity)
         {
             if (entity is null)
@@ -79,6 +75,7 @@ namespace Symu.Common.Classes
             entity.On = On;
             entity.RateOfAgentsOn = RateOfAgentsOn;
         }
+
         public virtual ModelEntity Clone()
         {
             var clone = new ModelEntity();
@@ -95,6 +92,5 @@ namespace Symu.Common.Classes
         {
             return On && Bernoulli.Sample(RateOfAgentsOn);
         }
-
     }
 }

@@ -1,21 +1,33 @@
-﻿using System;
+﻿#region Licence
+
+// Description: SymuBiz - SymuCommon
+// Website: https://symu.org
+// Copyright: (c) 2020 laurent morisseau
+// License : the program is distributed under the terms of the GNU General Public License
+
+#endregion
+
+#region using directives
+
+using System;
 using MathNet.Numerics.LinearAlgebra;
+
+#endregion
 
 namespace Symu.Common.Math.LinearAlgebra
 {
     /// <summary>
-    /// Extension to the matrix class of MathNet package
+    ///     Extension to the matrix class of MathNet package
     /// </summary>
     public static class MatrixExtension
     {
         /// <summary>
-        /// Technical method to calculate the grand sum of a matrix (the sum of all the elements)
+        ///     Technical method to calculate the grand sum of a matrix (the sum of all the elements)
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
         public static float GrandSum(this Matrix<float> matrix)
         {
-     
             if (matrix == null)
             {
                 throw new ArgumentNullException(nameof(matrix));
@@ -25,8 +37,8 @@ namespace Symu.Common.Math.LinearAlgebra
         }
 
         /// <summary>
-        /// Create the DegreeCentrality matrix of a matrix.
-        /// The degree centrality count the number of neighbors that a node has
+        ///     Create the DegreeCentrality matrix of a matrix.
+        ///     The degree centrality count the number of neighbors that a node has
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
@@ -42,15 +54,16 @@ namespace Symu.Common.Math.LinearAlgebra
             {
                 for (var j = 0; j < matrix.ColumnCount; j++)
                 {
-                    result[i, j] = matrix.Neighborhood(i,j).Sum();
-                }      
+                    result[i, j] = matrix.Neighborhood(i, j).Sum();
+                }
             }
+
             return result;
         }
 
         /// <summary>
-        /// Return all the nodes around a node (i, j) in a vector format
-        /// in a clockwise rotation
+        ///     Return all the nodes around a node (i, j) in a vector format
+        ///     in a clockwise rotation
         /// </summary>
         /// <param name="matrix"></param>
         /// <param name="i"></param>
@@ -69,6 +82,7 @@ namespace Symu.Common.Math.LinearAlgebra
                 {
                     return Vector<float>.Build.Dense(0);
                 }
+
                 if (j == 0)
                 {
                     var result = Vector<float>.Build.Dense(3);
@@ -77,7 +91,8 @@ namespace Symu.Common.Math.LinearAlgebra
                     result[2] = matrix[1, 0];
                     return result;
                 }
-                else if (j == matrix.ColumnCount - 1)
+
+                if (j == matrix.ColumnCount - 1)
                 {
                     var result = Vector<float>.Build.Dense(3);
                     result[0] = matrix[1, j];
@@ -90,7 +105,7 @@ namespace Symu.Common.Math.LinearAlgebra
                     var result = Vector<float>.Build.Dense(5);
                     result[0] = matrix[0, j + 1];
                     result[1] = matrix[1, j + 1];
-                    result[2] = matrix[1, j ];
+                    result[2] = matrix[1, j];
                     result[3] = matrix[1, j - 1];
                     result[4] = matrix[0, j - 1];
                     return result;
@@ -101,6 +116,7 @@ namespace Symu.Common.Math.LinearAlgebra
             {
                 return Vector<float>.Build.Dense(0);
             }
+
             if (j == 0)
             {
                 if (i == matrix.RowCount - 1)
@@ -122,7 +138,8 @@ namespace Symu.Common.Math.LinearAlgebra
                     return result;
                 }
             }
-            else if (j == matrix.ColumnCount - 1)
+
+            if (j == matrix.ColumnCount - 1)
             {
                 if (i == matrix.RowCount - 1)
                 {
@@ -143,31 +160,29 @@ namespace Symu.Common.Math.LinearAlgebra
                     return result;
                 }
             }
+
+            if (i == matrix.RowCount - 1)
+            {
+                var result = Vector<float>.Build.Dense(5);
+                result[0] = matrix[i - 1, j];
+                result[1] = matrix[i - 1, j + 1];
+                result[2] = matrix[i, j + 1];
+                result[3] = matrix[i, j - 1];
+                result[4] = matrix[i - 1, j - 1];
+                return result;
+            }
             else
             {
-                if (i == matrix.RowCount - 1)
-                {
-                    var result = Vector<float>.Build.Dense(5);
-                    result[0] = matrix[i - 1, j];
-                    result[1] = matrix[i - 1, j + 1];
-                    result[2] = matrix[i, j + 1];
-                    result[3] = matrix[i, j - 1];
-                    result[4] = matrix[i - 1, j - 1];
-                    return result;
-                }
-                else
-                {
-                    var result = Vector<float>.Build.Dense(8);
-                    result[0] = matrix[i - 1, j];
-                    result[1] = matrix[i - 1, j + 1];
-                    result[2] = matrix[i, j + 1];
-                    result[3] = matrix[i + 1, j + 1];
-                    result[4] = matrix[i + 1, j];
-                    result[5] = matrix[i + 1, j - 1];
-                    result[6] = matrix[i, j - 1];
-                    result[7] = matrix[i - 1, j - 1];
-                    return result;
-                }
+                var result = Vector<float>.Build.Dense(8);
+                result[0] = matrix[i - 1, j];
+                result[1] = matrix[i - 1, j + 1];
+                result[2] = matrix[i, j + 1];
+                result[3] = matrix[i + 1, j + 1];
+                result[4] = matrix[i + 1, j];
+                result[5] = matrix[i + 1, j - 1];
+                result[6] = matrix[i, j - 1];
+                result[7] = matrix[i - 1, j - 1];
+                return result;
             }
         }
 
