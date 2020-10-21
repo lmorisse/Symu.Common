@@ -40,6 +40,21 @@ namespace Symu.Common.Math.ProbabilityDistributions
         }
 
         /// <summary>
+        ///     Generates a sample from the normal distribution using the Box-Muller algorithm, forcing seed
+        /// </summary>
+        /// <param name="mean">The mean (μ) of the normal distribution.</param>
+        /// <param name="stdDev">The standard deviation (σ) of the normal distribution. Range: σ ≥ 0.</param>
+        /// <param name="seed"></param>
+        /// <returns>a sample from the distribution.</returns>
+        public static float Sample(float mean, float stdDev, int seed)
+        {
+            var random = new Random(seed);
+            return System.Math.Abs(stdDev) < Constants.Tolerance
+                ? mean
+                : Convert.ToSingle(MathNet.Numerics.Distributions.Normal.Sample(random, mean, stdDev));
+        }
+
+        /// <summary>
         ///     Generates a sample from the normal distribution using the Box-Muller algorithm.
         /// </summary>
         /// <param name="mean">The mean (μ) of the normal distribution.</param>

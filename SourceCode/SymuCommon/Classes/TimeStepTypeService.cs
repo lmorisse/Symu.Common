@@ -36,6 +36,8 @@ namespace Symu.Common.Classes
         {
             switch (level)
             {
+                case "Seconds":
+                case "Minutes":
                 case "Hours":
                 case "Intraday":
                     return TimeStepType.Intraday;
