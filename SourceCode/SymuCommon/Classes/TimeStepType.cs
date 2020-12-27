@@ -18,7 +18,9 @@ namespace Symu.Common.Classes
         Intraday = 0,
         Daily = 1,
         Weekly = 2,
-        Monthly = 3,
-        Yearly = 4
+        Monthly = 4,
+        Quarterly = 5,
+        SemiYearly = 6,
+        Yearly = 7
     }
 }

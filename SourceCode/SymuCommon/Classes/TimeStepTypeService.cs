@@ -18,6 +18,8 @@ namespace Symu.Common.Classes
 {
     public static class TimeStepTypeService
     {
+
+
         /// <summary>
         ///     Get all names of the KnowledgeLevel enum
         /// </summary>
@@ -50,6 +52,11 @@ namespace Symu.Common.Classes
                 case "Months":
                 case "Monthly":
                     return TimeStepType.Monthly;
+                case "Quarterly":
+                case "Quarters":
+                    return TimeStepType.Quarterly;
+                case "SemiYearly":
+                    return TimeStepType.SemiYearly;
                 case "Years":
                 case "Yearly":
                     return TimeStepType.Yearly;
@@ -66,6 +73,26 @@ namespace Symu.Common.Classes
         public static string GetName(TimeStepType level)
         {
             return level.ToString();
+        }
+        public static float GetMonthlyValue(string planCycle)
+        {
+            switch (GetValue(planCycle))
+            {
+                case TimeStepType.Daily:
+                    return 30;
+                case TimeStepType.Weekly:
+                    return 4;
+                case TimeStepType.Monthly:
+                    return 1;
+                case TimeStepType.Quarterly:
+                    return (float)(1.0 / 3);
+                case TimeStepType.SemiYearly:
+                    return (float)(1.0 / 6);
+                case TimeStepType.Yearly:
+                    return (float)(1.0 / 12);
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }
