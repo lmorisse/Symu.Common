@@ -10,7 +10,7 @@
 #region using directives
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Symu.Common.Math.ProbabilityDistributions;
+using Symu.Common.Core.Math.ProbabilityDistributions;
 
 #endregion
 

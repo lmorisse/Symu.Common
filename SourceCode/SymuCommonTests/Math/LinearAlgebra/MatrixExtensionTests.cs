@@ -11,7 +11,7 @@
 
 using MathNet.Numerics.LinearAlgebra;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Symu.Common.Math.LinearAlgebra;
+using Symu.Common.Core.Math.LinearAlgebra;
 
 #endregion
 

@@ -11,7 +11,7 @@
 
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Symu.Common.Classes;
+using Symu.Common.Core.Classes;
 
 #endregion
 

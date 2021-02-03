@@ -12,7 +12,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Symu.Common.Classes;
+using Symu.Common.Core.Classes;
 
 #endregion
 
