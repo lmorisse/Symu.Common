@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{8EBE8184-0
 		..\ROADMAP.md = ..\ROADMAP.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymuCommonCore", "SymuCommonCore\SymuCommonCore.csproj", "{12BF2ED6-10F0-48B4-8E57-05F1C7EA94B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{AD9B8345-B4C1-4A3E-8E54-368BDF0790C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9B8345-B4C1-4A3E-8E54-368BDF0790C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9B8345-B4C1-4A3E-8E54-368BDF0790C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12BF2ED6-10F0-48B4-8E57-05F1C7EA94B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12BF2ED6-10F0-48B4-8E57-05F1C7EA94B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12BF2ED6-10F0-48B4-8E57-05F1C7EA94B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12BF2ED6-10F0-48B4-8E57-05F1C7EA94B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
